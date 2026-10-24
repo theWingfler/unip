@@ -17,14 +17,23 @@
             scroll-behavior: smooth;
         }
 
+        /* خلفية متحركة بالألوان تنبض بالحياة */
         body {
-            background-color: #0d1b2a;
+            background: linear-gradient(-45deg, #0d1b2a, #1b263b, #0f172a, #1e293b, #0284c7, #0d1b2a);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             color: #f8fafc;
             text-align: right;
             overflow-x: hidden;
         }
 
-        /* 1. قسم البداية (Hero) مستوحى من ألوان اللعبة */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 1. قسم البداية (Hero) */
         .hero {
             height: 100vh;
             display: flex;
@@ -33,7 +42,8 @@
             align-items: center;
             text-align: center;
             padding: 20px;
-            background: linear-gradient(180deg, #38bdf8 0%, #1e293b 50%, #0d1b2a 100%);
+            background: rgba(13, 27, 42, 0.4);
+            backdrop-filter: blur(5px);
         }
 
         .hero h1 {
@@ -79,6 +89,11 @@
             gap: 50px;
             margin-bottom: 120px;
             flex-wrap: wrap;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         .feature-row.reverse {
@@ -95,7 +110,7 @@
             height: 380px;
             object-fit: cover;
             border-radius: 16px;
-            border: 4px solid #38bdf8;
+            border: 3px solid #38bdf8;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
             transition: all 0.4s ease;
         }
@@ -132,8 +147,9 @@
             align-items: center;
             text-align: center;
             padding: 80px 20px;
-            background: linear-gradient(180deg, #0d1b2a 0%, #1b263b 100%);
-            border-top: 2px solid #1e293b;
+            background: rgba(13, 27, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border-top: 2px solid rgba(56, 189, 248, 0.3);
         }
 
         .download-section h2 {
@@ -169,7 +185,7 @@
         footer {
             padding: 30px;
             text-align: center;
-            background-color: #0d1b2a;
+            background-color: rgba(13, 27, 42, 0.9);
             color: #64748b;
             font-size: 0.9rem;
         }
@@ -186,13 +202,13 @@
         </div>
     </section>
 
-    <!-- 2. Showcase Sections (Big Photos SC1 & SC2) -->
+    <!-- 2. Showcase Sections (SC1.png & SC2.png) -->
     <div class="showcase-section">
         
-        <!-- Feature 1 (SC1) -->
+        <!-- Feature 1 (SC1.png) -->
         <div class="feature-row">
             <div class="feature-img" data-aos="fade-left" data-aos-duration="1000">
-                <img src="SC1" alt="Game Screenshot 1">
+                <img src="SC1.png" alt="Game Screenshot 1">
             </div>
             <div class="feature-info" data-aos="fade-right" data-aos-duration="1000">
                 <h2>استكشف المباني والعوالم</h2>
@@ -200,10 +216,10 @@
             </div>
         </div>
 
-        <!-- Feature 2 (SC2 - Reversed) -->
+        <!-- Feature 2 (SC2.png - Reversed) -->
         <div class="feature-row reverse">
             <div class="feature-img" data-aos="fade-right" data-aos-duration="1000">
-                <img src="SC2" alt="Game Screenshot 2">
+                <img src="SC2.png" alt="Game Screenshot 2">
             </div>
             <div class="feature-info" data-aos="fade-left" data-aos-duration="1000">
                 <h2>تخطي العقبات واجمع المكافآت</h2>
