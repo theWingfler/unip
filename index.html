@@ -20,46 +20,40 @@
         body {
             background-color: #0b0f19;
             color: #f8fafc;
-            text-align: center;
+            text-align: right;
             overflow-x: hidden;
         }
 
-        /* 1. قسم القصة ووصف اللعبة بالبداية */
+        /* 1. قسم البداية (Hero) */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            text-align: center;
+            padding: 20px;
             background: radial-gradient(circle at center, #1e293b 0%, #0b0f19 100%);
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: #38bdf8;
             margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            text-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
         }
 
         .hero p.tagline {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #e2e8f0;
             margin-bottom: 20px;
             font-weight: 600;
         }
 
-        .hero p.bio {
-            max-width: 700px;
-            font-size: 1.1rem;
-            color: #94a3b8;
-            line-height: 1.8;
-            margin-bottom: 40px;
-        }
-
         .scroll-indicator {
             color: #38bdf8;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            margin-top: 40px;
             animation: bounce 2s infinite;
         }
 
@@ -69,55 +63,80 @@
             60% { transform: translateY(-5px); }
         }
 
-        /* 2. قسم الصور والمعرض بالوسط */
-        .gallery-section {
-            padding: 100px 20px;
-            max-width: 1100px;
+        /* 2. أقسام الصور والمعلومات (Zebra / Split Layout) */
+        .showcase-section {
+            padding: 100px 5%;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
-        .gallery-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #38bdf8;
+        .feature-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            margin-bottom: 120px;
+            flex-wrap: wrap;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+        /* لقلب اتجاه الصف (صورة يمين وصف يسار) */
+        .feature-row.reverse {
+            flex-direction: row-reverse;
         }
 
-        .grid img {
+        .feature-img {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .feature-img img {
             width: 100%;
-            height: 220px;
+            height: 380px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 16px;
             border: 2px solid #1e293b;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            transition: all 0.5s ease;
         }
 
-        .grid img:hover {
+        .feature-img img:hover {
             border-color: #38bdf8;
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.2);
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px rgba(56, 189, 248, 0.3);
         }
 
-        /* 3. قسم التحميل بأسفل الصفحة */
+        .feature-info {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .feature-info h2 {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 20px;
+        }
+
+        .feature-info p {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            line-height: 1.9;
+        }
+
+        /* 3. قسم التحميل بالأعلى/الأسفل */
         .download-section {
-            min-height: 70vh;
+            min-height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
             padding: 80px 20px;
             background: linear-gradient(180deg, #0b0f19 0%, #0f172a 100%);
             border-top: 1px solid #1e293b;
         }
 
         .download-section h2 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin-bottom: 15px;
             color: #f1f5f9;
         }
@@ -125,36 +144,30 @@
         .download-section p {
             color: #94a3b8;
             margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
-
-        .download-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            font-size: 1.2rem;
         }
 
         .download-btn {
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: white;
-            padding: 18px 36px;
-            font-size: 1.2rem;
+            padding: 20px 45px;
+            font-size: 1.3rem;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 12px;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4);
+            box-shadow: 0 10px 30px rgba(2, 132, 199, 0.4);
             border: 1px solid #38bdf8;
         }
 
         .download-btn:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.6);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.6);
         }
 
         footer {
             padding: 30px;
+            text-align: center;
             background-color: #0b0f19;
             color: #475569;
             font-size: 0.9rem;
@@ -163,35 +176,60 @@
 </head>
 <body>
 
-    <!-- 1. Bio & Game Overview -->
+    <!-- 1. Hero Section -->
     <section class="hero">
         <h1 data-aos="zoom-in" data-aos-duration="1000">Unip Game</h1>
-        <p class="tagline" data-aos="fade-up" data-aos-delay="200">رحلة في عالم مغامر ومثير</p>
-        <p class="bio" data-aos="fade-up" data-aos-delay="400">
-            لعبة Unip هي مشروع تطوير العاب مميز يقدم تجربة بيئة مليئة بالتحديات والرسوميات الممتعة. استكشف العوالم، واجه العقبات، واكتشف تفاصيل اللعبة بنفسك!
-        </p>
-        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="600">
-            ▼ انزل لأسفل لرؤية اللقطات والتحميل ▼
+        <p class="tagline" data-aos="fade-up" data-aos-delay="200">مشروع لعبة مميز بتصميم وتجربة فريدة</p>
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="400">
+            ▼ انزل لأسفل لاكتشاف تفاصيل اللعبة وعوالمها ▼
         </div>
     </section>
 
-    <!-- 2. Game Screenshots (Show on Scroll) -->
-    <section class="gallery-section">
-        <h2 data-aos="fade-down">لقطات من داخل اللعبة</h2>
-        <div class="grid">
-            <img src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Screenshot+1" alt="SC1" data-aos="fade-up" data-aos-delay="100">
-            <img src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Screenshot+2" alt="SC2" data-aos="fade-up" data-aos-delay="200">
-            <img src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Screenshot+3" alt="Game Screenshot 3" data-aos="fade-up" data-aos-delay="300">
+    <!-- 2. Showcase Sections (Big Photos + Info Split) -->
+    <div class="showcase-section">
+        
+        <!-- Feature 1 -->
+        <div class="feature-row">
+            <div class="feature-img" data-aos="fade-left" data-aos-duration="1000">
+                <img src="https://via.placeholder.com/700x450/1e293b/38bdf8?text=World+Exploration" alt="Game Feature 1">
+            </div>
+            <div class="feature-info" data-aos="fade-right" data-aos-duration="1000">
+                <h2>استكشف عوالم واسعة</h2>
+                <p>انطلق في مغامرة حرة داخل بيئات ومناطق مصممة بعناية. استكشف التفاصيل، وتفاعل مع كل ما حولك لاجتياز المراحل واكتشاف أسرار اللعبة.</p>
+            </div>
         </div>
-    </section>
 
-    <!-- 3. Download Section at the Bottom -->
+        <!-- Feature 2 (Reversed) -->
+        <div class="feature-row reverse">
+            <div class="feature-img" data-aos="fade-right" data-aos-duration="1000">
+                <img src="https://via.placeholder.com/700x450/1e293b/38bdf8?text=Action+and+Gameplay" alt="Game Feature 2">
+            </div>
+            <div class="feature-info" data-aos="fade-left" data-aos-duration="1000">
+                <h2>أكشن وحماس مستمر</h2>
+                <p>واجه التحديات والعقبات بأسلوب لعب سلس وممتع. تم تصميم آليات اللعب بعناية لتعطيك أفضل تحكم وأقوى أداء طوال فترة اللعب.</p>
+            </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-row">
+            <div class="feature-img" data-aos="fade-left" data-aos-duration="1000">
+                <img src="https://via.placeholder.com/700x450/1e293b/38bdf8?text=Stunning+Graphics" alt="Game Feature 3">
+            </div>
+            <div class="feature-info" data-aos="fade-right" data-aos-duration="1000">
+                <h2>تصميم بصري فريد</h2>
+                <p>تتمتع اللعبة بأجواء بصرية مظلمة وساحرة تدمج بين الإضاءة المذهلة والتفاصيل الدقيقة لتضعك في قلب الحدث مباشرة.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 3. Download Section -->
     <section class="download-section">
-        <h2 data-aos="zoom-in">جاهز للتجربة؟</h2>
-        <p data-aos="fade-up" data-aos-delay="100">حمّل النسخة الأخيرة من اللعبة الآن وابدأ مغامرتك.</p>
+        <h2 data-aos="zoom-in">جاهز لخوض التجربة؟</h2>
+        <p data-aos="fade-up" data-aos-delay="100">حمّل أحدث نسخة من اللعبة الآن وابدأ مغامرتك الخاصة.</p>
         
         <div class="download-container" data-aos="zoom-in-up" data-aos-delay="200">
-            <!-- استبدل الرابط للـ EXE أو الملف الخاص بلعبتك -->
+            <!-- استبدل الرابط بملف لعبتك الحقيقي -->
             <a href="#" class="download-btn">🎮 تحميل اللعبة للـ PC</a>
         </div>
     </section>
@@ -200,11 +238,11 @@
         <p>© 2026 Unip Game. جميع الحقوق محفوظة.</p>
     </footer>
 
-    <!-- سكريبت لتفعيل الأنيميشن -->
+    <!-- سكريبت الأنيميشن -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({
-        duration: 800,
+        duration: 900,
         once: false,
       });
     </script>
