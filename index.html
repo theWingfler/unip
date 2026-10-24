@@ -17,68 +17,52 @@
             scroll-behavior: smooth;
         }
 
-        /* خلفية متحركة بالألوان تنبض بالحياة */
+        /* خلفية داكنة ثنائية الألوان، خفيفة وسريعة بدبي بدون أي اللاغ */
         body {
-            background: linear-gradient(-45deg, #0d1b2a, #1b263b, #0f172a, #1e293b, #0284c7, #0d1b2a);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background-color: #0b132b;
             color: #f8fafc;
             text-align: right;
             overflow-x: hidden;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* 1. قسم البداية (Hero) */
+        /* 1. قسم البداية (Hero) - حجم أصغر وملموم */
         .hero {
-            height: 100vh;
+            padding: 60px 20px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
-            background: rgba(13, 27, 42, 0.4);
-            backdrop-filter: blur(5px);
+            background: linear-gradient(180deg, #1c2541 0%, #0b132b 100%);
+            border-bottom: 2px solid #1e293b;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 3.5rem;
             color: #ffffff;
-            margin-bottom: 15px;
-            text-shadow: 4px 4px 0px #0284c7;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 0px #0284c7;
             font-weight: 900;
         }
 
         .hero p.tagline {
-            font-size: 1.6rem;
-            color: #e2e8f0;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            color: #38bdf8;
+            margin-bottom: 15px;
             font-weight: 600;
         }
 
-        .scroll-indicator {
-            color: #38bdf8;
-            font-size: 1.1rem;
-            margin-top: 40px;
-            animation: bounce 2s infinite;
-            font-weight: bold;
+        .hero p.bio {
+            max-width: 650px;
+            font-size: 1rem;
+            color: #94a3b8;
+            line-height: 1.6;
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        /* 2. أقسام الصور والمعلومات (Zebra Layout) */
+        /* 2. قسم العرض والميزات (Compact Layout) */
         .showcase-section {
-            padding: 100px 5%;
-            max-width: 1300px;
+            padding: 50px 5%;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -86,14 +70,13 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 50px;
-            margin-bottom: 120px;
+            gap: 30px;
+            margin-bottom: 40px;
             flex-wrap: wrap;
-            background: rgba(15, 23, 42, 0.6);
-            padding: 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            background: #1c2541;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #3a506b;
         }
 
         .feature-row.reverse {
@@ -101,93 +84,84 @@
         }
 
         .feature-img {
-            flex: 1;
-            min-width: 320px;
+            flex: 1.2;
+            min-width: 280px;
         }
 
         .feature-img img {
             width: 100%;
-            height: 380px;
+            height: 280px;
             object-fit: cover;
-            border-radius: 16px;
-            border: 3px solid #38bdf8;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-            transition: all 0.4s ease;
-        }
-
-        .feature-img img:hover {
-            border-color: #22c55e;
-            transform: scale(1.02);
-            box-shadow: 0 20px 45px rgba(34, 197, 94, 0.3);
+            border-radius: 8px;
+            border: 2px solid #38bdf8;
+            display: block;
         }
 
         .feature-info {
             flex: 1;
-            min-width: 320px;
+            min-width: 280px;
         }
 
         .feature-info h2 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: #38bdf8;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .feature-info p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #cbd5e1;
-            line-height: 1.9;
+            line-height: 1.7;
         }
 
-        /* 3. قسم التحميل */
+        /* 3. قسم التحميل الملموم */
         .download-section {
-            min-height: 60vh;
+            padding: 50px 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 80px 20px;
-            background: rgba(13, 27, 42, 0.7);
-            backdrop-filter: blur(10px);
-            border-top: 2px solid rgba(56, 189, 248, 0.3);
+            background-color: #1c2541;
+            border-top: 2px solid #3a506b;
         }
 
         .download-section h2 {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
             color: #ffffff;
         }
 
         .download-section p {
             color: #94a3b8;
-            margin-bottom: 40px;
-            font-size: 1.2rem;
+            margin-bottom: 25px;
+            font-size: 1rem;
         }
 
         .download-btn {
-            background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+            background: #22c55e;
             color: white;
-            padding: 20px 45px;
-            font-size: 1.3rem;
+            padding: 15px 35px;
+            font-size: 1.1rem;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4);
+            border-radius: 8px;
+            transition: background 0.2s ease, transform 0.2s ease;
             border: 2px solid #4ade80;
+            display: inline-block;
         }
 
         .download-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(34, 197, 94, 0.6);
+            background: #16a34a;
+            transform: translateY(-2px);
         }
 
         footer {
-            padding: 30px;
+            padding: 20px;
             text-align: center;
-            background-color: rgba(13, 27, 42, 0.9);
+            background-color: #0b132b;
             color: #64748b;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -195,33 +169,33 @@
 
     <!-- 1. Hero Section -->
     <section class="hero">
-        <h1 data-aos="zoom-in" data-aos-duration="1000">Unip Game</h1>
-        <p class="tagline" data-aos="fade-up" data-aos-delay="200">عالم بيكسل آرت مليء بالمغامرات والتحديات</p>
-        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="400">
-            ▼ انزل لأسفل لاكتشاف مراحل اللعبة ▼
-        </div>
+        <h1 data-aos="fade-down">Unip Game</h1>
+        <p class="tagline" data-aos="fade-up" data-aos-delay="100">عالم بيكسل آرت مليء بالمغامرات والتحديات</p>
+        <p class="bio" data-aos="fade-up" data-aos-delay="200">
+            لعبة مغامرات ثنائية الأبعاد بتصميم بيكسل مميز. استكشف العوالم، واجه الأعداء، وتخطى المنصات والعقبات للوصول للهدف!
+        </p>
     </section>
 
-    <!-- 2. Showcase Sections (SC1.png & SC2.png) -->
+    <!-- 2. Showcase Sections (Compact Rows) -->
     <div class="showcase-section">
         
-        <!-- Feature 1 (SC1.png) -->
-        <div class="feature-row">
-            <div class="feature-img" data-aos="fade-left" data-aos-duration="1000">
+        <!-- Feature 1 -->
+        <div class="feature-row" data-aos="fade-up">
+            <div class="feature-img">
                 <img src="SC1.png" alt="Game Screenshot 1">
             </div>
-            <div class="feature-info" data-aos="fade-right" data-aos-duration="1000">
+            <div class="feature-info">
                 <h2>استكشف المباني والعوالم</h2>
                 <p>انطلق في مغامرتك داخل بيئات مذهلة، استكشف الأبنية واستعد لمواجهة الأعداء في كل مكان.</p>
             </div>
         </div>
 
-        <!-- Feature 2 (SC2.png - Reversed) -->
-        <div class="feature-row reverse">
-            <div class="feature-img" data-aos="fade-right" data-aos-duration="1000">
+        <!-- Feature 2 (Reversed) -->
+        <div class="feature-row reverse" data-aos="fade-up">
+            <div class="feature-img">
                 <img src="SC2.png" alt="Game Screenshot 2">
             </div>
-            <div class="feature-info" data-aos="fade-left" data-aos-duration="1000">
+            <div class="feature-info">
                 <h2>تخطي العقبات واجمع المكافآت</h2>
                 <p>اقفز بين المنصات، تجنب المخاطر، واجمع العناصر لترتقي بمستواك وتكمل رحلتك بنجاح.</p>
             </div>
@@ -232,9 +206,9 @@
     <!-- 3. Download Section -->
     <section class="download-section">
         <h2 data-aos="zoom-in">جاهز لتجربة اللعبة؟</h2>
-        <p data-aos="fade-up" data-aos-delay="100">حمّل أحدث نسخة الآن وخض المغامرة بنفسك.</p>
+        <p data-aos="fade-up">حمّل أحدث نسخة الآن وخض المغامرة بنفسك.</p>
         
-        <div class="download-container" data-aos="zoom-in-up" data-aos-delay="200">
+        <div class="download-container" data-aos="zoom-in">
             <a href="#" class="download-btn">🎮 تحميل اللعبة للـ PC</a>
         </div>
     </section>
@@ -247,8 +221,8 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({
-        duration: 900,
-        once: false,
+        duration: 600,
+        once: true
       });
     </script>
 </body>
