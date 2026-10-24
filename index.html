@@ -4,35 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unip Game - Official Website</title>
+    
+    <!-- مكتبة التأثيرات الحركية AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #0f172a;
+            background-color: #0b0f19;
             color: #f8fafc;
             text-align: center;
-            padding: 20px;
+            overflow-x: hidden;
         }
 
-        header {
-            padding: 50px 20px;
+        /* 1. قسم القصة ووصف اللعبة بالبداية */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            background: radial-gradient(circle at center, #1e293b 0%, #0b0f19 100%);
         }
 
-        h1 {
-            font-size: 3rem;
+        .hero h1 {
+            font-size: 4rem;
             color: #38bdf8;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
         }
 
-        p.subtitle {
-            font-size: 1.2rem;
+        .hero p.tagline {
+            font-size: 1.5rem;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero p.bio {
+            max-width: 700px;
+            font-size: 1.1rem;
             color: #94a3b8;
-            margin-bottom: 30px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .scroll-indicator {
+            color: #38bdf8;
+            font-size: 0.9rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* 2. قسم الصور والمعرض بالوسط */
+        .gallery-section {
+            padding: 100px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #38bdf8;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .grid img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid #1e293b;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .grid img:hover {
+            border-color: #38bdf8;
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.2);
+        }
+
+        /* 3. قسم التحميل بأسفل الصفحة */
+        .download-section {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #0b0f19 0%, #0f172a 100%);
+            border-top: 1px solid #1e293b;
+        }
+
+        .download-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #f1f5f9;
+        }
+
+        .download-section p {
+            color: #94a3b8;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
         }
 
         .download-container {
@@ -40,86 +133,66 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin-bottom: 50px;
         }
 
         .download-btn {
-            background-color: #0284c7;
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: white;
-            padding: 15px 30px;
-            font-size: 1.1rem;
+            padding: 18px 36px;
+            font-size: 1.2rem;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 8px;
-            transition: 0.3s;
-            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4);
+            border: 1px solid #38bdf8;
         }
 
         .download-btn:hover {
-            background-color: #0369a1;
-            transform: translateY(-2px);
-        }
-
-        .gallery {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .gallery h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #f1f5f9;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .grid img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 2px solid #334155;
-            transition: 0.3s;
-        }
-
-        .grid img:hover {
-            border-color: #38bdf8;
-            transform: scale(1.03);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.6);
         }
 
         footer {
-            margin-top: 50px;
-            padding: 20px;
-            color: #64748b;
+            padding: 30px;
+            background-color: #0b0f19;
+            color: #475569;
             font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Unip Game</h1>
-        <p class="subtitle">مرحباً بك في الموقع الرسمي للعبة! حمّل اللعبة واكتشف أحدث الصور واللقطات.</p>
-        
-        <div class="download-container">
-            <!-- استبدل الرابط للـ EXE أو الملف الخاص باللعبة -->
-            <a href="#" class="download-btn">🎮 تحميل للـ PC (Windows)</a>
-            <a href="#" class="download-btn" style="background-color: #334155;">📱 رابط آخر / قريباً</a>
+    <!-- 1. Bio & Game Overview -->
+    <section class="hero">
+        <h1 data-aos="zoom-in" data-aos-duration="1000">Unip Game</h1>
+        <p class="tagline" data-aos="fade-up" data-aos-delay="200">رحلة في عالم مغامر ومثير</p>
+        <p class="bio" data-aos="fade-up" data-aos-delay="400">
+            لعبة Unip هي مشروع تطوير العاب مميز يقدم تجربة بيئة مليئة بالتحديات والرسوميات الممتعة. استكشف العوالم، واجه العقبات، واكتشف تفاصيل اللعبة بنفسك!
+        </p>
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="600">
+            ▼ انزل لأسفل لرؤية اللقطات والتحميل ▼
         </div>
-    </header>
+    </section>
 
-    <section class="gallery">
-        <h2>لقطات من اللعبة (Screenshots)</h2>
+    <!-- 2. Game Screenshots (Show on Scroll) -->
+    <section class="gallery-section">
+        <h2 data-aos="fade-down">لقطات من داخل اللعبة</h2>
         <div class="grid">
-            <!-- استبدل روابط الصور بروابط صور لعبتك أو ارفع الصور لـ GitHub واستخدم اسمها -->
-            <img src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Screenshot+1" alt="Game Screenshot 1">
-            <img src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Screenshot+2" alt="Game Screenshot 2">
-            <img src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Screenshot+3" alt="Game Screenshot 3">
+            <img src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Screenshot+1" alt="Game Screenshot 1" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Screenshot+2" alt="Game Screenshot 2" data-aos="fade-up" data-aos-delay="200">
+            <img src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Screenshot+3" alt="Game Screenshot 3" data-aos="fade-up" data-aos-delay="300">
+        </div>
+    </section>
+
+    <!-- 3. Download Section at the Bottom -->
+    <section class="download-section">
+        <h2 data-aos="zoom-in">جاهز للتجربة؟</h2>
+        <p data-aos="fade-up" data-aos-delay="100">حمّل النسخة الأخيرة من اللعبة الآن وابدأ مغامرتك.</p>
+        
+        <div class="download-container" data-aos="zoom-in-up" data-aos-delay="200">
+            <!-- استبدل الرابط للـ EXE أو الملف الخاص بلعبتك -->
+            <a href="#" class="download-btn">🎮 تحميل اللعبة للـ PC</a>
         </div>
     </section>
 
@@ -127,5 +200,13 @@
         <p>© 2026 Unip Game. جميع الحقوق محفوظة.</p>
     </footer>
 
+    <!-- سكريبت لتفعيل الأنيميشن -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: false,
+      });
+    </script>
 </body>
 </html>
