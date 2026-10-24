@@ -17,11 +17,12 @@
             scroll-behavior: smooth;
         }
 
-        /* خلفية الـ Dirt Block مالت ماينكرافت مكبرة مع تكرار بيكسلي حاد */
+        /* خلفية مخصصة تقرأ من ملف bg.png الذي ترفعه بـ GitHub */
         body {
-            background-image: url('https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.19/assets/minecraft/textures/block/dirt.png');
+            background-image: url('bg.png');
             background-repeat: repeat;
             background-size: 64px 64px;
+            background-color: #0d1b2a; /* لون احتياطي إذا لم توجد صورة */
             image-rendering: pixelated;
             color: #f8fafc;
             text-align: right;
@@ -114,7 +115,6 @@
             border-color: #4ade80;
         }
 
-        /* صندوق معلومات مع خلفية معتمة تليق بـ Minecraft Dirt */
         .feature-info {
             flex: 1;
             min-width: 320px;
@@ -205,7 +205,7 @@
         </div>
     </section>
 
-    <!-- 2. Showcase Sections (Big Photos + Minecraft Styled Bio Boxes) -->
+    <!-- 2. Showcase Sections (Big Photos + Bio Boxes) -->
     <div class="showcase-section">
         
         <!-- Feature 1 (SC1.png) -->
@@ -253,6 +253,3 @@
         duration: 900,
         once: false,
       });
-    </script>
-</body>
-</html>
