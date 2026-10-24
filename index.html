@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unip Game - Official Website</title>
     
-    <!-- استدعاء خط ماينكرافت البيكسلي الأصلي من الويب -->
+    <!-- خط ماينكرافت البيكسلي -->
     <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
     
     <!-- مكتبة التأثيرات الحركية AOS -->
@@ -29,34 +29,85 @@
         }
 
         /* ----------------------------------------------------
-           1. الطبقة العليا: السطح (العنوان على اليسار بخط ماينكرافت)
+           1. الطبقة العليا (Hero) - شاشة مقسومة (يسار شعارات / يمين عنوان)
         ---------------------------------------------------- */
         .hero {
-            height: 95vh;
+            min-height: 80vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start; /* محاذاة العناصر للجهة اليسرى */
-            text-align: left;
-            padding: 0 8%;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 8%;
+            gap: 40px;
+            /* خلفية سماء ماينكرافت مع العشب بأسفل الشاشة */
             background: 
-                linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.65)),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
                 url('https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.19/assets/minecraft/textures/block/grass_block_side.png') repeat-x bottom/64px 64px,
-                linear-gradient(180deg, #5c94fc 0%, #80b2fe 60%, #4a752c 100%);
-            border-bottom: 8px solid #388718;
-            position: relative;
+                linear-gradient(180deg, #5c94fc 0%, #80b2fe 65%, #388718 100%);
+            border-bottom: 8px solid #2e6012;
+            flex-wrap: wrap;
         }
 
-        .hero h1 {
-            font-size: 4.5rem;
+        /* الجهة اليسرى: إطارات كبار لشعار الكلية وشعار اللعبة */
+        .hero-left-logos {
+            flex: 1;
+            min-width: 320px;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-card {
+            width: 180px;
+            height: 180px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 4px solid #fef08a;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+
+        .logo-card:hover {
+            transform: translateY(-8px) scale(1.04);
+            border-color: #38bdf8;
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.4);
+        }
+
+        .logo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-card span {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #38bdf8;
+            text-align: center;
+        }
+
+        /* الجهة اليمنى: العنوان والوصف */
+        .hero-right-content {
+            flex: 1;
+            min-width: 320px;
+            text-align: right;
+        }
+
+        .hero-right-content h1 {
+            font-size: 4.2rem;
             color: #ffffff;
             margin-bottom: 15px;
             text-shadow: 4px 4px 0px #1e3a8a, 7px 7px 0px #000000;
-            font-weight: 900;
             letter-spacing: 2px;
         }
 
-        .hero p.tagline {
+        .hero-right-content p.tagline {
             font-size: 1.5rem;
             color: #fef08a;
             margin-bottom: 25px;
@@ -65,25 +116,26 @@
         }
 
         .scroll-indicator {
+            display: inline-block;
             color: #ffffff;
-            font-size: 1rem;
+            font-size: 0.95rem;
             animation: bounce 2s infinite;
             text-shadow: 2px 2px 4px #000;
             font-weight: bold;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 8px 18px;
+            background: rgba(0, 0, 0, 0.65);
+            padding: 10px 20px;
             border-radius: 8px;
             border: 2px solid #5c94fc;
         }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
         }
 
         /* ----------------------------------------------------
-           2. الطبقة الوسطى: باطن الأرض والتراب (Dirt Layer)
+           2. الطبقة الوسطى: باطن الأرض (Dirt Showcase)
         ---------------------------------------------------- */
         .showcase-section {
             padding: 90px 5%;
@@ -121,7 +173,6 @@
             border: 4px solid #fef08a;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.95);
             transition: transform 0.4s ease;
-            image-rendering: pixelated;
         }
 
         .feature-img img:hover {
@@ -156,7 +207,7 @@
         }
 
         /* ----------------------------------------------------
-           3. الطبقة السفلية: أعماق الكهوف (Cave / Stone Layer)
+           3. الطبقة السفلية: أعماق الكهوف (Cobblestone)
         ---------------------------------------------------- */
         .download-section {
             padding: 100px 20px;
@@ -220,13 +271,30 @@
 </head>
 <body>
 
-    <!-- 1. Surface Sky & Grass Layer (Title on Left) -->
+    <!-- 1. Surface Sky & Grass Layer (Split: Left Logos / Right Content) -->
     <section class="hero">
-        <h1 data-aos="fade-right" data-aos-duration="1000">Unip Game</h1>
-        <p class="tagline" data-aos="fade-right" data-aos-delay="200">🌳 استكشف 🌳</p>
-        <div class="scroll-indicator" data-aos="fade-right" data-aos-delay="400">
-            ▼ انزل للأسفل ▼
+        
+        <!-- الجهة اليسرى: إطارات الشعارات الكبيرة -->
+        <div class="hero-left-logos" data-aos="fade-left" data-aos-duration="1000">
+            <div class="logo-card">
+                <img src="college-logo.png" alt="College Logo" onerror="this.src='https://via.placeholder.com/150/1e293b/38bdf8?text=College+Logo'">
+                <span>شعار الكلية</span>
+            </div>
+            <div class="logo-card">
+                <img src="game-logo.png" alt="Game Logo" onerror="this.src='https://via.placeholder.com/150/1e293b/fef08a?text=Game+Logo'">
+                <span>شعار اللعبة</span>
+            </div>
         </div>
+
+        <!-- الجهة اليمنى: اسم اللعبة والوصف -->
+        <div class="hero-right-content" data-aos="fade-right" data-aos-duration="1000">
+            <h1>UNIP GAME</h1>
+            <p class="tagline">🌳 استكشف السطح وابدأ المغامرة 🌳</p>
+            <div class="scroll-indicator">
+                ▼ انزل للأسفل للاختراق إلى باطن الأرض والكهوف ▼
+            </div>
+        </div>
+
     </section>
 
     <!-- 2. Dirt Showcase Section -->
@@ -239,7 +307,7 @@
             </div>
             <div class="feature-info" data-aos="fade-right" data-aos-duration="1000">
                 <h2>استكشف المباني والعوالم</h2>
-                <p>انطلق في بيئات مذهلة ومصممة بأسلوب البيكسل. استكشف الأبنية والمناطق المختلفة </p>
+                <p>انطلق في مغامرتك داخل بيئات مذهلة ومصممة بأسلوب البيكسل. استكشف الأبنية والمناطق المختلفة، واستعد لمواجهة الأعداء في كل خطوة.</p>
             </div>
         </div>
 
@@ -250,16 +318,16 @@
             </div>
             <div class="feature-info" data-aos="fade-left" data-aos-duration="1000">
                 <h2>تخطي العقبات واجمع المكافآت</h2>
-                <p> تجربة اللعبة .</p>
+                <p>اقفز بدقة بين المنصات المرتفعة، تجنب المخاطر والفخاخ، واجمع العناصر والمكافآت لترتقي بمستواك وتكمل رحلتك بنجاح تام.</p>
             </div>
         </div>
 
     </div>
 
-    <!-- 3. Cave & Cobblestone Layer (Download) -->
+    <!-- 3. Cave Layer (Download) -->
     <section class="download-section">
-        <h2 data-aos="zoom-in">جرب اللعبة</h2>
-        <p data-aos="fade-up" data-aos-delay="100">حمّل أحدث نسخة الآنUnip.</p>
+        <h2 data-aos="zoom-in">⛏️ دخلت أعماق الكهوف! جاهز للتحميل؟</h2>
+        <p data-aos="fade-up" data-aos-delay="100">حمّل أحدث نسخة الآن وابدأ رحلتك في عالم Unip.</p>
         
         <div class="download-container" data-aos="zoom-in-up" data-aos-delay="200">
             <a href="#" class="download-btn">🎮 تحميل اللعبة للـ PC</a>
