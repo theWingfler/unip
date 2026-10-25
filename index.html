@@ -78,6 +78,7 @@
             border: 2px solid #cbd5e1;
             transition: all 0.3s ease;
             box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            cursor: pointer;
         }
 
         .nav-btn:hover {
@@ -114,6 +115,72 @@
             transform: translateY(-2px);
         }
 
+        /* نافذة تشغيل اللعبة داخل الموقع (Modal) */
+        .game-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .game-modal-content {
+            width: 90%;
+            max-width: 900px;
+            height: 80vh;
+            background: #0f172a;
+            border-radius: 16px;
+            border: 3px solid #38bdf8;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+        }
+
+        .game-modal-header {
+            padding: 15px 20px;
+            background: #1e293b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        .close-modal-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .close-modal-btn:hover {
+            background: #dc2626;
+        }
+
+        .game-iframe-container {
+            flex: 1;
+            width: 100%;
+            background: #000;
+        }
+
+        .game-iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         /* المحتوى الرئيسي */
         .main-container {
             max-width: 1100px;
@@ -148,7 +215,7 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* أقسام الصور والوصف (متقاربة وبدون حدود) */
+        /* أقسام الصور والوصف */
         .showcase-section {
             width: 100%;
             display: flex;
@@ -297,15 +364,29 @@
     <header class="top-bar">
         <div class="top-bar-brand">UNI PROJECT</div>
         <nav class="top-bar-nav">
-            <a href="#play-section" class="nav-btn play-btn">🎮 PLAY</a>
+            <!-- زر PLAY يشغل نافذة اللعبة داخل الموقع -->
+            <button onclick="openGameModal()" class="nav-btn play-btn">🎮 PLAY</button>
             <a href="https://github.com/theWingfler/unip" target="_blank" class="nav-btn">💻 Full Code</a>
             <a href="#about-section" class="nav-btn">👥 Who are we?</a>
         </nav>
         <div class="top-bar-college">
-            <!-- استبدل الرابط أدناه برابط كليتك التقنية الحقيقي -->
             <a href="https://ttc.stu.edu.iq/" target="_blank" class="college-link-btn">🌐 موقع الكلية</a>
         </div>
     </header>
+
+    <!-- نافذة منبثقة لتشغيل اللعبة (Modal) -->
+    <div id="gameModal" class="game-modal">
+        <div class="game-modal-content">
+            <div class="game-modal-header">
+                <span>🎮 تشغيل اللعبة مباشرة</span>
+                <button onclick="closeGameModal()" class="close-modal-btn">إغلاق ✕</button>
+            </div>
+            <div class="game-iframe-container">
+                <!-- استبدل الرابط أدناه برابط لعبة Godot المصدرة بصيغة HTML5 (أو رابط itch.io الخاص بلعبتك) -->
+                <iframe src="game-web/index.html" title="Unip Game Play"></iframe>
+            </div>
+        </div>
+    </div>
 
     <!-- المحتوى الرئيسي للموقع -->
     <div class="main-container">
@@ -316,7 +397,7 @@
             <p class="tagline">موقع لتجربة اللعبة</p>
         </section>
 
-        <!-- 2. Showcase Section (SC1 و SC2) -->
+        <!-- 2. Showcase Section -->
         <div class="showcase-section">
             
             <!-- Screenshot 1 -->
@@ -337,17 +418,18 @@
                 </div>
                 <div class="feature-info">
                     <h2>لعبة بسيطة مع جرافكس معتدل</h2>
-                    <p>تم بناء اللعبة بالكامل باستخدام محرك  GODOT محرك مفتوح المصدر ومجاني.</p>
+                    <p>تم بناء اللعبة بالكامل باستخدام محرك GODOT محرك مفتوح المصدر ومجاني.</p>
                 </div>
             </div>
 
         </div>
 
-        <!-- 3. Download / Play Section -->
+        <!-- 3. Download Section -->
         <section id="play-section" class="download-section" data-aos="zoom-in" data-aos-duration="800">
             <h2>جرب العبة.</h2>
             <p>اضغط على الزر أدناه لتحميل ملف اللعبة والبدء باللعب مباشرة.</p>
-            <a href="game.zip" class="download-btn" download>📥 تثبيت / تحميل اللعبة الآن</a>
+            <!-- زر التحميل يحمل ملف اللعبة game.zip المرفوع بالمستودع -->
+            <a href=https://drive.google.com/file/d/1FbAOeTKuSbk_gqmnU2mtB5HKcC6mgG4v/view?usp=drive_link" class="download-btn" download>📥 تثبيت / تحميل اللعبة الآن</a>
         </section>
 
         <!-- 4. Who Are We Section -->
@@ -362,13 +444,22 @@
 
     </div>
 
-    <!-- سكريبت الأنيميشن -->
+    <!-- سكريبت التشغيل والأنيميشن -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({
         duration: 900,
         once: true,
       });
+
+      // دوال فتح وإغلاق نافذة تشغيل اللعبة داخل الموقع
+      function openGameModal() {
+          document.getElementById('gameModal').style.display = 'flex';
+      }
+
+      function closeGameModal() {
+          document.getElementById('gameModal').style.display = 'none';
+      }
     </script>
 </body>
 </html>
