@@ -20,7 +20,7 @@
             scroll-behavior: smooth;
         }
 
-        /* خلفية موحدة ومستمرة لكل الموقع بأسلوب ماينكرافت بدون أي فواصل */
+        /* خلفية موحدة ومستمرة لكل الموقع بأسلوب ماينكرافت */
         body {
             background-color: #1e293b;
             background-image: 
@@ -31,12 +31,10 @@
             color: #f8fafc;
             text-align: right;
             overflow-x: hidden;
-            padding-top: 80px; /* مسافة للشريط العلوي الثابت */
+            padding-top: 80px;
         }
 
-        /* ----------------------------------------------------
-           1. الشريط العلوي الثابت (Top Bar)
-        ---------------------------------------------------- */
+        /* الشريط العلوي الثابت */
         header.top-bar {
             position: fixed;
             top: 0;
@@ -112,19 +110,16 @@
             transform: translateY(-2px);
         }
 
-        /* ----------------------------------------------------
-           2. المحتوى الرئيسي (مائل نحو اليسار ومنظم)
-        ---------------------------------------------------- */
+        /* المحتوى الرئيسي */
         .main-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* محاذاة كل العناصر للجهة اليسرى */
+            align-items: flex-start;
         }
 
-        /* قسم البداية (Hero) */
         .hero {
             width: 100%;
             display: flex;
@@ -168,9 +163,7 @@
             font-weight: 600;
         }
 
-        /* ----------------------------------------------------
-           3. أقسام الصور والوصف (الصور والوصف بالجهة اليسرى)
-        ---------------------------------------------------- */
+        /* أقسام الصور والوصف */
         .showcase-section {
             width: 100%;
             display: flex;
@@ -229,9 +222,7 @@
             font-family: 'Segoe UI', Tahoma, sans-serif;
         }
 
-        /* ----------------------------------------------------
-           4. قسم التحميل (Download / Play Section)
-        ---------------------------------------------------- */
+        /* قسم التحميل */
         .download-section {
             width: 100%;
             padding: 60px 20px;
@@ -280,7 +271,7 @@
             box-shadow: 0 12px 30px rgba(34, 197, 94, 0.6);
         }
 
-        /* قسم "من نحن" (Who are we) */
+        /* قسم من نحن */
         .about-section {
             width: 100%;
             background: rgba(15, 23, 42, 0.85);
@@ -314,7 +305,6 @@
             margin-top: 20px;
         }
 
-        /* للتوافق مع الهواتف والشاشات الصغيرة */
         @media (max-width: 768px) {
             header.top-bar { padding: 0 15px; height: auto; flex-direction: column; gap: 10px; padding-bottom: 10px; }
             body { padding-top: 130px; }
@@ -351,10 +341,10 @@
             <p class="tagline">منصة ألعاب بيكسل آرت كلاسيكية مطورة بعناية</p>
         </section>
 
-        <!-- 2. Showcase Section (Photos and bios on left side) -->
+        <!-- 2. Showcase Section (SC1, SC2, SC3...) -->
         <div class="showcase-section">
             
-            <!-- Feature 1 (SC1.png) -->
+            <!-- Screenshot 1 -->
             <div class="feature-row" data-aos="fade-up" data-aos-duration="800">
                 <div class="feature-img">
                     <img src="SC1.png" alt="Game Screenshot 1" onerror="this.src='https://via.placeholder.com/500x320/1e293b/38bdf8?text=SC1.png+Missing'">
@@ -365,7 +355,7 @@
                 </div>
             </div>
 
-            <!-- Feature 2 (SC2.png) -->
+            <!-- Screenshot 2 -->
             <div class="feature-row" data-aos="fade-up" data-aos-duration="800">
                 <div class="feature-img">
                     <img src="SC2.png" alt="Game Screenshot 2" onerror="this.src='https://via.placeholder.com/500x320/1e293b/fef08a?text=SC2.png+Missing'">
@@ -376,20 +366,30 @@
                 </div>
             </div>
 
+            <!-- Screenshot 3 (SC3.png الجديدة اللي رفعتها) -->
+            <div class="feature-row" data-aos="fade-up" data-aos-duration="800">
+                <div class="feature-img">
+                    <img src="SC3.png" alt="Game Screenshot 3" onerror="this.src='https://via.placeholder.com/500x320/1e293b/38bdf8?text=SC3.png+Missing'">
+                </div>
+                <div class="feature-info">
+                    <h2>مراحل وتحديات إضافية</h2>
+                    <p>المزيد من الإثارة والمغامرات بانتظارك في هذه المرحلة المتقدمة. واجه زعماء العالم وتغلب على الصعاب.</p>
+                </div>
+            </div>
+
         </div>
 
         <!-- 3. Download / Play Section -->
         <section id="play-section" class="download-section" data-aos="zoom-in" data-aos-duration="800">
             <h2>جاهز لخوض المغامرة؟</h2>
             <p>اضغط على الزر أدناه لتحميل ملف اللعبة والبدء باللعب مباشرة.</p>
-            <!-- استبدل game.zip باسم ملف لعبتك الحقيقي المرفوع بالمستودع -->
             <a href="game.zip" class="download-btn" download>📥 تثبيت / تحميل اللعبة الآن</a>
         </section>
 
         <!-- 4. Who Are We Section -->
         <section id="about-section" class="about-section" data-aos="fade-up" data-aos-duration="800">
             <h2>من نحن؟ (Who are we?)</h2>
-            <p>نحن فريق تطوير برمجيات وهندسة أنظمة شغوف بابتكار وتصميم الألعاب التفاعلية. هذا المشروع يمثل خلاصة عملنا وجهدنا البرمجي لتقديم تجربة ريترو فريدة ومميزة.</p>
+            <p>نحن فريق تطوير برمجيات وهندسة أنظمة شغوف بابتكار وتصميم الألعاب التفاعلية. هذا المشروع يمثل خلاصة عملنا وجهدنا البرمجي لتجربة ريترو مميزة.</p>
         </section>
 
         <footer>
