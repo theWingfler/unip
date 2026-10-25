@@ -124,59 +124,31 @@
             align-items: flex-start;
         }
 
-        /* قسم البداية (Hero Header مع شعار الكلية بالجهة اليسرى) */
         .hero {
             width: 100%;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 35px;
-            padding: 15px 0;
-            gap: 30px;
-        }
-
-        .hero-text {
-            text-align: right;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            padding: 20px 0;
         }
 
         .hero h1 {
             font-size: 4.5rem;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             text-shadow: 4px 4px 0px #0284c7, 6px 6px 0px rgba(0,0,0,0.3);
         }
 
         .hero p.tagline {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: #fef08a;
             font-family: 'Segoe UI', Tahoma, sans-serif;
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* حاوية شعار الكلية بدون حدود وضمن المنطقة المحددة بالدائرة */
-        .hero-college-logo {
-            width: 170px;
-            height: 170px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .hero-college-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
-            transition: transform 0.3s ease;
-        }
-
-        .hero-college-logo img:hover {
-            transform: scale(1.05);
-        }
-
-        /* أقسام الصور والوصف */
+        /* أقسام الصور والوصف (متقاربة وبدون حدود) */
         .showcase-section {
             width: 100%;
             display: flex;
@@ -315,7 +287,6 @@
             header.top-bar { padding: 0 15px; height: auto; flex-direction: column; gap: 10px; padding-bottom: 10px; }
             body { padding-top: 130px; }
             .top-bar-nav { flex-wrap: wrap; justify-content: center; }
-            .hero { flex-direction: column; align-items: flex-start; gap: 15px; }
             .hero h1 { font-size: 3rem; }
         }
     </style>
@@ -339,17 +310,10 @@
     <!-- المحتوى الرئيسي للموقع -->
     <div class="main-container">
 
-        <!-- 1. Hero Section (شعار الكلية بالجهة اليسرى في المكان المحدد بالدائرة) -->
+        <!-- 1. Hero Section -->
         <section class="hero" data-aos="fade-right" data-aos-duration="1000">
-            <!-- شعار الكلية في المكان المحدد -->
-            <div class="hero-college-logo">
-                <img src="college-logo.png" alt="College Logo" onerror="this.src='college-logo.png'">
-            </div>
-
-            <div class="hero-text">
-                <h1>UNI PROJECT</h1>
-                <p class="tagline">منصة ألعاب بيكسل آرت كلاسيكية مطورة بعناية</p>
-            </div>
+            <h1>UNI PROJECT</h1>
+            <p class="tagline">منصة ألعاب بيكسل آرت كلاسيكية مطورة بعناية</p>
         </section>
 
         <!-- 2. Showcase Section (SC1 و SC2) -->
